@@ -2,15 +2,21 @@ pipeline {
     agent any
 
     stages {
+        stage('Clone') {
+            steps {
+                echo 'Clonning the repository'
+                // e.g., sh 'mvn clean install' or 'npm build'
+            }
         stage('Build') {
             steps {
-                echo 'Building the application...'
+                sh 'python --version'
+                sh 'python3 Ayush.py'
                 // e.g., sh 'mvn clean install' or 'npm build'
             }
         }
         stage('Test') {
             steps {
-                echo 'Running tests...'
+                sh 'pytest --maxfail=1 --disable-warning -q'
                 // e.g., sh 'mvn test' or 'npm test'
             }
         }
