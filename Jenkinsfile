@@ -17,9 +17,9 @@ pipeline {
         }
         stage('Test') {
             steps {
-                sh 'pip3 install pytest'
-                sh 'pytest --maxfail=1 --disable-warnings -q'
-                // e.g., sh 'mvn test' or 'npm test'
+                sh 'python3 -m venv venv'
+                sh '. venv/bin/activate && pip install pytest'
+                sh '. venv/bin/activate && pytest --maxfail=1 --disable-warnings -q'
             }
         }
         stage('Deploy') {
