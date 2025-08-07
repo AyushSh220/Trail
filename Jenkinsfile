@@ -10,7 +10,7 @@ pipeline {
         }
         stage('Build') {
             steps {
-                sh 'python --version'
+                sh 'python3 --version'
                 sh 'python3 Ayush.py'
                 // e.g., sh 'mvn clean install' or 'npm build'
             }
