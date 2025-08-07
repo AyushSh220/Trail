@@ -4,9 +4,10 @@ pipeline {
     stages {
         stage('Clone') {
             steps {
-                echo 'Clonning the repository'
-                // e.g., sh 'mvn clean install' or 'npm build'
+                echo 'Cloning the repository'
+                // e.g., sh 'git clone <repo_url>'
             }
+        }
         stage('Build') {
             steps {
                 sh 'python --version'
@@ -16,7 +17,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                sh 'pytest --maxfail=1 --disable-warning -q'
+                sh 'pytest --maxfail=1 --disable-warnings -q'
                 // e.g., sh 'mvn test' or 'npm test'
             }
         }
@@ -28,4 +29,3 @@ pipeline {
         }
     }
 }
-
